@@ -1,4 +1,4 @@
-C51 COMPILER V9.52.0.0   DETECT                                                            04/24/2019 13:03:37 PAGE 1   
+C51 COMPILER V9.52.0.0   DETECT                                                            05/07/2019 12:46:34 PAGE 1   
 
 
 C51 COMPILER V9.52.0.0, COMPILATION OF MODULE DETECT
@@ -62,7 +62,7 @@ line level    source
   52   3            DS1302_Data_Tmp[5]  = DS1302_Data[5];
   53   3          }
   54   2        }
-C51 COMPILER V9.52.0.0   DETECT                                                            04/24/2019 13:03:37 PAGE 2   
+C51 COMPILER V9.52.0.0   DETECT                                                            05/07/2019 12:46:34 PAGE 2   
 
   55   1        //DisplayData[0] = smgduan[TIME[2]/16];       //时
   56   1        //DisplayData[1] = smgduan[TIME[2]&0x0f];        
@@ -126,7 +126,7 @@ line level    source
  114   1        /*int hum, temp;
  115   1        
  116   1        if(0 == dht11_init())
-C51 COMPILER V9.52.0.0   DETECT                                                            04/24/2019 13:03:37 PAGE 3   
+C51 COMPILER V9.52.0.0   DETECT                                                            05/07/2019 12:46:34 PAGE 3   
 
  117   1        {
  118   1          if(0 == dht11_read(&hum, &temp))
@@ -190,7 +190,7 @@ line level    source
  176   2          // 循环按菜单键后，写入时间(√)
  177   2          if(Flag_read_only_get == 0)
  178   2            Flag_read_only_one  = 1;
-C51 COMPILER V9.52.0.0   DETECT                                                            04/24/2019 13:03:37 PAGE 4   
+C51 COMPILER V9.52.0.0   DETECT                                                            05/07/2019 12:46:34 PAGE 4   
 
  179   2          
  180   2          if(Flag_key_incre == 1)
@@ -254,7 +254,7 @@ line level    source
  238   3            Flag_key_incre = 0; 
  239   3            if(++DS1302_Data_Tmp[5] >= 10)
  240   3            {
-C51 COMPILER V9.52.0.0   DETECT                                                            04/24/2019 13:03:37 PAGE 5   
+C51 COMPILER V9.52.0.0   DETECT                                                            05/07/2019 12:46:34 PAGE 5   
 
  241   4              if(++DS1302_Data_Tmp[4] >= 6)
  242   4                DS1302_Data_Tmp[4] = 0;
