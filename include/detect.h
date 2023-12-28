@@ -9,6 +9,7 @@ extern unsigned char Flag_detect_data1;
 extern unsigned char Flag_detect_data2;
 extern unsigned char Flag_rh_get;
 extern unsigned char Flag_tmp_get;
+extern unsigned char Flag_DS1302_Write;
 void DS1302_Get();
 void DHT11_Get();
 void Dete_Data();

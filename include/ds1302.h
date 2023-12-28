@@ -27,5 +27,6 @@ void DS1302_ReadTime();
 
 //---加入全局变量--//
 extern uchar TIME[7];	//加入全局变量
+extern unsigned char code WRITE_RTC_ADDR[7];
 
 #endif

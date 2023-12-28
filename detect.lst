@@ -1,4 +1,4 @@
-C51 COMPILER V9.52.0.0   DETECT                                                            04/23/2019 16:49:35 PAGE 1   
+C51 COMPILER V9.52.0.0   DETECT                                                            04/24/2019 12:02:40 PAGE 1   
 
 
 C51 COMPILER V9.52.0.0, COMPILATION OF MODULE DETECT
@@ -17,7 +17,7 @@ line level    source
    7          #include "dht11.h"
    8          #include "key.h"
    9          
-  10          sbit p01 = P0^1;
+  10          //sbit p01 = P0^1;
   11          
   12          volatile unsigned char DS1302_Data[6];
   13          volatile unsigned char DS1302_Data_Tmp[6];
@@ -27,209 +27,259 @@ line level    source
   17          volatile unsigned char Flag_detect_data2;
   18          volatile unsigned char Flag_rh_get;
   19          volatile unsigned char Flag_tmp_get;
-  20          volatile unsigned char ave;
-  21          
+  20          volatile unsigned char Flag_DS1302_Write;
+  21          volatile unsigned char Flag_read_only_one;
   22          
-  23          
-  24          void DS1302_Get()
-  25          {
-  26   1        if(Flag_key_menu == MENU_NoADJ)
-  27   1        {
-  28   2          DS1302_ReadTime();
-  29   2          DS1302_Data[0] = TIME[2]/16;  //时
-  30   2          DS1302_Data[1] = TIME[2]&0x0f;
-  31   2          DS1302_Data[2] = TIME[1]/16;  //分
-  32   2          DS1302_Data[3] = TIME[1]&0x0f;
-  33   2          DS1302_Data[4] = TIME[0]/16;  //秒
-  34   2          DS1302_Data[5] = TIME[0]&0x0f;
-  35   2        }
-  36   1        else
-  37   1        {
-  38   2          DS1302_Data_Tmp[0]  = DS1302_Data[0];
-  39   2          DS1302_Data_Tmp[1]  = DS1302_Data[1];
-  40   2          DS1302_Data_Tmp[2]  = DS1302_Data[2];
-  41   2          DS1302_Data_Tmp[3]  = DS1302_Data[3];
-  42   2          DS1302_Data_Tmp[4]  = DS1302_Data[4];
-  43   2          DS1302_Data_Tmp[5]  = DS1302_Data[5];
-  44   2        }
-  45   1        //DisplayData[0] = smgduan[TIME[2]/16];       //时
-  46   1        //DisplayData[1] = smgduan[TIME[2]&0x0f];        
-  47   1        //DisplayData[2] = 0x40;
-  48   1        //DisplayData[3] = smgduan[TIME[1]/16];       //分
-  49   1        //DisplayData[4] = smgduan[TIME[1]&0x0f]; 
-  50   1        //DisplayData[5] = 0x40;
-  51   1        //DisplayData[6] = smgduan[TIME[0]/16];       //秒
-  52   1        //DisplayData[7] = smgduan[TIME[0]&0x0f];
-  53   1      }
-  54          
-C51 COMPILER V9.52.0.0   DETECT                                                            04/23/2019 16:49:35 PAGE 2   
+  23          volatile unsigned char ave;
+  24          
+  25          
+  26          
+  27          void DS1302_Get()
+  28          { 
+  29   1        if(Flag_key_menu == MENU_NoADJ)
+  30   1        {
+  31   2          // 读时间
+  32   2          DS1302_ReadTime();
+  33   2          DS1302_Data[0] = TIME[2]/16;  //时
+  34   2          DS1302_Data[1] = TIME[2]&0x0f;
+  35   2          DS1302_Data[2] = TIME[1]/16;  //分
+  36   2          DS1302_Data[3] = TIME[1]&0x0f;
+  37   2          DS1302_Data[4] = TIME[0]/16;  //秒
+  38   2          DS1302_Data[5] = TIME[0]&0x0f;
+  39   2        }
+  40   1        else
+  41   1        {
+  42   2          // 不读时间
+  43   2          if(Flag_read_only_one == 1)
+  44   2          {
+  45   3            Flag_read_only_one = 0;
+  46   3            DS1302_Data_Tmp[0]  = DS1302_Data[0];
+  47   3            DS1302_Data_Tmp[1]  = DS1302_Data[1];
+  48   3            DS1302_Data_Tmp[2]  = DS1302_Data[2];
+  49   3            DS1302_Data_Tmp[3]  = DS1302_Data[3];
+  50   3            DS1302_Data_Tmp[4]  = DS1302_Data[4];
+  51   3            DS1302_Data_Tmp[5]  = DS1302_Data[5];
+  52   3          }
+  53   2        }
+  54   1        //DisplayData[0] = smgduan[TIME[2]/16];       //时
+C51 COMPILER V9.52.0.0   DETECT                                                            04/24/2019 12:02:40 PAGE 2   
 
-  55          
-  56          void DHT11_Get()
-  57          {
-  58   1        static volatile unsigned char temp1, temp2, oldtemp1, oldtemp2;
-  59   1        unsigned char delta;
-  60   1        static volatile unsigned int delay;
-  61   1        static volatile unsigned char cnt;
-  62   1      
-  63   1        if(cnt == 0)
-  64   1        {
-  65   2          DHT11_receive();
-  66   2          oldtemp1 = RH;
-  67   2          oldtemp2 = TH;
-  68   2          cnt++;
-  69   2        }
-  70   1      
-  71   1        
-  72   1        if(++delay >= 100)
+  55   1        //DisplayData[1] = smgduan[TIME[2]&0x0f];        
+  56   1        //DisplayData[2] = 0x40;
+  57   1        //DisplayData[3] = smgduan[TIME[1]/16];       //分
+  58   1        //DisplayData[4] = smgduan[TIME[1]&0x0f]; 
+  59   1        //DisplayData[5] = 0x40;
+  60   1        //DisplayData[6] = smgduan[TIME[0]/16];       //秒
+  61   1        //DisplayData[7] = smgduan[TIME[0]&0x0f];
+  62   1      }
+  63          
+  64          
+  65          void DHT11_Get()
+  66          {
+  67   1        static volatile unsigned char temp1, temp2, oldtemp1, oldtemp2;
+  68   1        unsigned char delta;
+  69   1        static volatile unsigned int delay;
+  70   1        static volatile unsigned char cnt;
+  71   1      
+  72   1        if(cnt == 0)
   73   1        {
-  74   2          delay = 0;
-  75   2          
-  76   2          DHT11_receive();
-  77   2          temp1 = RH;         
-  78   2          if(temp1 >= oldtemp1)
-  79   2            delta = temp1 - oldtemp1;
-  80   2          else
-  81   2            delta = oldtemp1 - temp1;
-  82   2          if(delta <= 20)
-  83   2          {
-  84   3            DHT11_Data_Tmp[0] = temp1;        //接收湿度高八位
-  85   3            oldtemp1 = temp1;
-  86   3            Flag_rh_get = 1;
-  87   3          }
-  88   2          //DHT11_Data_Tmp[0] = RH;       //接收湿度高八位
-  89   2          //DHT11_Data_Tmp[1] = RL;        //接收湿度低八位
-  90   2          
-  91   2          temp2 = TH;         
-  92   2          if(temp2 >= oldtemp2)
-  93   2            delta = temp2 - oldtemp2;
-  94   2          else
-  95   2            delta = oldtemp2 - temp2;
-  96   2          if(delta <= 3)
-  97   2          {
-  98   3            DHT11_Data_Tmp[1] = temp2;         //接收温度高八位
-  99   3            oldtemp2 = temp2;
- 100   3            Flag_tmp_get = 1;
- 101   3          }
- 102   2        }
- 103   1        //DHT11_Data_Tmp[3] = TL;         //接收温度低八位
- 104   1        /*int hum, temp;
- 105   1        
- 106   1        if(0 == dht11_init())
- 107   1        {
- 108   1          if(0 == dht11_read(&hum, &temp))
- 109   1          {
- 110   1            //Flag_DHT11_Get = 1;
- 111   1            OLED_ShowNum(25, 4, hum,  2, 16);
- 112   1            OLED_ShowNum(35, 4, temp, 2, 16);
- 113   1          }
- 114   1        }
- 115   1        
- 116   1        while (1)
-C51 COMPILER V9.52.0.0   DETECT                                                            04/23/2019 16:49:35 PAGE 3   
+  74   2          DHT11_receive();
+  75   2          oldtemp1 = RH;
+  76   2          oldtemp2 = TH;
+  77   2          cnt++;
+  78   2        }
+  79   1      
+  80   1        
+  81   1        if(++delay >= 100)
+  82   1        {
+  83   2          delay = 0;
+  84   2          
+  85   2          DHT11_receive();
+  86   2          temp1 = RH;         
+  87   2          if(temp1 >= oldtemp1)
+  88   2            delta = temp1 - oldtemp1;
+  89   2          else
+  90   2            delta = oldtemp1 - temp1;
+  91   2          if(delta <= 20)
+  92   2          {
+  93   3            DHT11_Data_Tmp[0] = temp1;        //接收湿度高八位
+  94   3            oldtemp1 = temp1;
+  95   3            Flag_rh_get = 1;
+  96   3          }
+  97   2          //DHT11_Data_Tmp[0] = RH;       //接收湿度高八位
+  98   2          //DHT11_Data_Tmp[1] = RL;        //接收湿度低八位
+  99   2          
+ 100   2          temp2 = TH;         
+ 101   2          if(temp2 >= oldtemp2)
+ 102   2            delta = temp2 - oldtemp2;
+ 103   2          else
+ 104   2            delta = oldtemp2 - temp2;
+ 105   2          if(delta <= 3)
+ 106   2          {
+ 107   3            DHT11_Data_Tmp[1] = temp2;         //接收温度高八位
+ 108   3            oldtemp2 = temp2;
+ 109   3            Flag_tmp_get = 1;
+ 110   3          }
+ 111   2        }
+ 112   1        //DHT11_Data_Tmp[3] = TL;         //接收温度低八位
+ 113   1        /*int hum, temp;
+ 114   1        
+ 115   1        if(0 == dht11_init())
+ 116   1        {
+C51 COMPILER V9.52.0.0   DETECT                                                            04/24/2019 12:02:40 PAGE 3   
 
- 117   1        {
- 118   1          if (dht11_read(&hum, &temp) !=0 )
- 119   1          {
- 120   1            //printf("\n\rdht11 read err!\n\r");
- 121   1            dht11_init();
+ 117   1          if(0 == dht11_read(&hum, &temp))
+ 118   1          {
+ 119   1            //Flag_DHT11_Get = 1;
+ 120   1            OLED_ShowNum(25, 4, hum,  2, 16);
+ 121   1            OLED_ShowNum(35, 4, temp, 2, 16);
  122   1          }
- 123   1          else
- 124   1          {
- 125   1            //printf("\n\rDHT11 : %d humidity, %d temperature\n\r", hum, temp);
- 126   1          }
- 127   1        }*/
- 128   1      }
- 129          
- 130          void Dete_Data()
- 131          {
- 132   1        //int ret1, ret2;
- 133   1        unsigned char tmp;
- 134   1        //static unsigned char ave1;
- 135   1        //static unsigned char ave2;
- 136   1        
- 137   1        //ret1 = Ave_Process();
- 138   1        //ret2 = Ave_Process(DHT11_Data_Tmp[1], &ave2);
- 139   1        
- 140   1        //if(0 == ret1)
- 141   1        if(Flag_rh_get == 1)
- 142   1        {
- 143   2          Flag_rh_get = 0;//zengjia
- 144   2          tmp = DHT11_Data_Tmp[0];
- 145   2          DHT11_Data[0] = tmp/10;
- 146   2          DHT11_Data[1] = tmp%10;
- 147   2          Flag_detect_data1 = 1;
- 148   2        }
- 149   1        //if(0 == ret2)
- 150   1        if(Flag_tmp_get == 1)
- 151   1        {
- 152   2          Flag_tmp_get = 0;//zengjia
- 153   2          tmp = DHT11_Data_Tmp[1];
- 154   2          DHT11_Data[2] = tmp/10;
- 155   2          DHT11_Data[3] = tmp%10;
- 156   2          Flag_detect_data2 = 1;
- 157   2        }
- 158   1        
- 159   1        /*if(Flag_key_menu = MENU_ADJ_HOUR)
- 160   1        {
- 161   1          // 时间停止增加(√)
- 162   1          // 时间闪烁(√)
- 163   1          // 时间调整按键生效
- 164   1          if(i = 0)// 第一次调用该程序
- 165   1          {
- 166   1            for(i=0; i<3; i++)
- 167   1              DS1302_Data_Tmp[i] = TIME[i];
- 168   1            i = -1;
- 169   1          }
- 170   1          
- 171   1          if(Flag_key_incre == 1)
- 172   1          {
- 173   1            Flag_key_incre = 0; 
- 174   1            DS1302_Data_Tmp[2]++;
- 175   1          }
- 176   1          else if(Flag_key_decre == 1)
- 177   1          {
- 178   1            Flag_key_decre = 0;
-C51 COMPILER V9.52.0.0   DETECT                                                            04/23/2019 16:49:35 PAGE 4   
+ 123   1        }
+ 124   1        
+ 125   1        while (1)
+ 126   1        {
+ 127   1          if (dht11_read(&hum, &temp) !=0 )
+ 128   1          {
+ 129   1            //printf("\n\rdht11 read err!\n\r");
+ 130   1            dht11_init();
+ 131   1          }
+ 132   1          else
+ 133   1          {
+ 134   1            //printf("\n\rDHT11 : %d humidity, %d temperature\n\r", hum, temp);
+ 135   1          }
+ 136   1        }*/
+ 137   1      }
+ 138          
+ 139          void Dete_Data()
+ 140          {
+ 141   1        //int ret1, ret2;
+ 142   1        unsigned char tmp;
+ 143   1        static volatile unsigned char flag_adj_sec;
+ 144   1        unsigned char time_write_tmp[3];
+ 145   1        //static unsigned char ave1;
+ 146   1        //static unsigned char ave2;
+ 147   1        
+ 148   1        //ret1 = Ave_Process();
+ 149   1        //ret2 = Ave_Process(DHT11_Data_Tmp[1], &ave2);
+ 150   1        
+ 151   1        //if(0 == ret1)
+ 152   1        if(Flag_rh_get == 1)
+ 153   1        {
+ 154   2          Flag_rh_get = 0;//zengjia
+ 155   2          tmp = DHT11_Data_Tmp[0];
+ 156   2          DHT11_Data[0] = tmp/10;
+ 157   2          DHT11_Data[1] = tmp%10;
+ 158   2          Flag_detect_data1 = 1;
+ 159   2        }
+ 160   1        //if(0 == ret2)
+ 161   1        if(Flag_tmp_get == 1)
+ 162   1        {
+ 163   2          Flag_tmp_get = 0;//zengjia
+ 164   2          tmp = DHT11_Data_Tmp[1];
+ 165   2          DHT11_Data[2] = tmp/10;
+ 166   2          DHT11_Data[3] = tmp%10;
+ 167   2          Flag_detect_data2 = 1;
+ 168   2        }
+ 169   1        
+ 170   1        if(Flag_key_menu == MENU_ADJ_HOUR)
+ 171   1        {
+ 172   2          // 时间停止增加(√)
+ 173   2          // 时间闪烁(√)
+ 174   2          // 时间调整按键生效(√)
+ 175   2          // 循环按菜单键后，写入时间
+ 176   2          Flag_read_only_one  = 1;
+ 177   2          if(Flag_key_incre == 1)
+ 178   2          {
+C51 COMPILER V9.52.0.0   DETECT                                                            04/24/2019 12:02:40 PAGE 4   
 
- 179   1            DS1302_Data_Tmp[2]--;
- 180   1          }
- 181   1        }
- 182   1        else if(Flag_key_menu == MENU_ADJ_MIN)
- 183   1        {
- 184   1          if(Flag_key_incre == 1)
- 185   1          {
- 186   1            Flag_key_incre = 0; 
- 187   1            DS1302_Data_Tmp[1]++;
- 188   1          }
- 189   1          else if(Flag_key_decre == 1)
- 190   1          {
- 191   1            Flag_key_decre = 0;
- 192   1            DS1302_Data_Tmp[1]--;
- 193   1          }
- 194   1        }
- 195   1        else if(Flag_key_menu == MENU_ADJ_SEC)
- 196   1        {
- 197   1          if(Flag_key_incre == 1)
- 198   1          {
- 199   1            Flag_key_incre = 0; 
- 200   1            DS1302_Data_Tmp[0]++;
- 201   1          }
- 202   1          else if(Flag_key_decre == 1)
- 203   1          {
- 204   1            Flag_key_decre = 0;
- 205   1            DS1302_Data_Tmp[0]--;
- 206   1          }
- 207   1        }*/
- 208   1      }
+ 179   3            Flag_key_incre = 0; 
+ 180   3            DS1302_Data_Tmp[1]++;
+ 181   3          }
+ 182   2          else if(Flag_key_decre == 1)
+ 183   2          {
+ 184   3            Flag_key_decre = 0;
+ 185   3            DS1302_Data_Tmp[1]--;
+ 186   3          }
+ 187   2        }
+ 188   1        else if(Flag_key_menu == MENU_ADJ_MIN)
+ 189   1        {
+ 190   2          if(Flag_key_incre == 1)
+ 191   2          {
+ 192   3            Flag_key_incre = 0; 
+ 193   3            if(++DS1302_Data_Tmp[3] >= 10)
+ 194   3            {
+ 195   4              if(++DS1302_Data_Tmp[2] >= 6)
+ 196   4                DS1302_Data_Tmp[2] = 0;
+ 197   4              DS1302_Data_Tmp[3] = 0;
+ 198   4            }
+ 199   3          }
+ 200   2          else if(Flag_key_decre == 1)
+ 201   2          {
+ 202   3            Flag_key_decre = 0;
+ 203   3            if(--DS1302_Data_Tmp[3] >= 255)
+ 204   3            {
+ 205   4              if(--DS1302_Data_Tmp[2] >= 255)
+ 206   4                DS1302_Data_Tmp[2] = 5;
+ 207   4              DS1302_Data_Tmp[3] = 9;
+ 208   4            }
+ 209   3          }
+ 210   2        }
+ 211   1        else if(Flag_key_menu == MENU_ADJ_SEC)
+ 212   1        {
+ 213   2          flag_adj_sec = 1;// 该分支已执行标志
+ 214   2          if(Flag_key_incre == 1)
+ 215   2          {
+ 216   3            Flag_key_incre = 0; 
+ 217   3            if(++DS1302_Data_Tmp[5] >= 10)
+ 218   3            {
+ 219   4              if(++DS1302_Data_Tmp[4] >= 6)
+ 220   4                DS1302_Data_Tmp[4] = 0;
+ 221   4              DS1302_Data_Tmp[5] = 0;
+ 222   4            }
+ 223   3          }
+ 224   2          else if(Flag_key_decre == 1)
+ 225   2          {
+ 226   3            Flag_key_decre = 0;
+ 227   3            if(--DS1302_Data_Tmp[5] >= 255)
+ 228   3            {
+ 229   4              if(--DS1302_Data_Tmp[4] >= 255)
+ 230   4                DS1302_Data_Tmp[4] = 5;
+ 231   4              DS1302_Data_Tmp[4] = 9;
+ 232   4            }
+ 233   3          }
+ 234   2        }
+ 235   1        else
+ 236   1        {
+ 237   2          if(flag_adj_sec == 1)
+ 238   2          {
+ 239   3            flag_adj_sec = 0;
+ 240   3            
+C51 COMPILER V9.52.0.0   DETECT                                                            04/24/2019 12:02:40 PAGE 5   
+
+ 241   3            time_write_tmp[0] = ((DS1302_Data_Tmp[4]<<4) | DS1302_Data_Tmp[5]);
+ 242   3            time_write_tmp[1] = ((DS1302_Data_Tmp[2]<<4) | DS1302_Data_Tmp[3]);
+ 243   3            time_write_tmp[2] = ((DS1302_Data_Tmp[0]<<4) | DS1302_Data_Tmp[1]);
+ 244   3            
+ 245   3            DS1302_Write(0x8E,0x00);     //禁止写保护，就是关闭写保护功能
+ 246   3            DS1302_Write(WRITE_RTC_ADDR[0], time_write_tmp[0]);
+ 247   3            DS1302_Write(WRITE_RTC_ADDR[1], time_write_tmp[1]);
+ 248   3            DS1302_Write(WRITE_RTC_ADDR[2], time_write_tmp[2]);
+ 249   3            DS1302_Write(WRITE_RTC_ADDR[3], TIME[3]);
+ 250   3            DS1302_Write(WRITE_RTC_ADDR[4], TIME[4]);
+ 251   3            DS1302_Write(WRITE_RTC_ADDR[5], TIME[5]);
+ 252   3            DS1302_Write(0x8E,0x80);     //打开写保护功能
+ 253   3            Flag_DS1302_Write = 1;
+ 254   3          }
+ 255   2        }
+ 256   1      }
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =    247    ----
+   CODE SIZE        =    581    ----
    CONSTANT SIZE    =   ----    ----
    XDATA SIZE       =   ----    ----
    PDATA SIZE       =   ----    ----
-   DATA SIZE        =     30       1
+   DATA SIZE        =     33       5
    IDATA SIZE       =   ----    ----
    BIT SIZE         =   ----    ----
 END OF MODULE INFORMATION.

@@ -31,8 +31,10 @@ volatile unsigned char Flag_key_incre;
 volatile unsigned char Flag_key_decre;
 volatile unsigned char Flag_key_menu;
 
-sbit GND = P1^7;
-sbit PORT_K_MENU = P1^0;
+//sbit GND = P1^7;
+sbit PORT_K_MENU = P0^7;
+sbit PORT_K_INCR = P0^6;
+sbit PORT_K_DECR = P0^5;
 sbit LED1 = P0^1;
 
 void Keys_Scan()
@@ -41,10 +43,14 @@ void Keys_Scan()
 	unsigned char key_press;
 	unsigned char key_input;
 	//u8 key_return = 0;	
-  GND = 0;      
+  //GND = 0;
 	key_input  = !PORT_K_MENU;
-	key_input  = key_input<<2;
-	//key_input |= (!PORT_K_D);
+	key_input  = key_input<<1;
+	key_input |= (!PORT_K_INCR);
+	key_input  = key_input<<1;
+	key_input |= (!PORT_K_DECR);
+	//key_input  = key_input<<1;
+	
 	key_press  = key_input;					// 读按键I/O电平
 	switch (key_state)
 	{
@@ -62,11 +68,11 @@ void Keys_Scan()
 			{
 				if(key_press & KEY_INCRE)
 				{
-						//Flag_key_incre = 1;
+						Flag_key_incre = 1;
 				}
 				else if(key_press & KEY_DECRE)
 				{
-						//Flag_key_decre = 1;
+						Flag_key_decre = 1;
 				}
 				else if(key_press & KEY_MENU)
 				{

@@ -7,7 +7,7 @@
 #include "dht11.h"
 #include "key.h"
 
-sbit p01 = P0^1;
+//sbit p01 = P0^1;
 
 volatile unsigned char DS1302_Data[6];
 volatile unsigned char DS1302_Data_Tmp[6];
@@ -17,14 +17,18 @@ volatile unsigned char Flag_detect_data1;
 volatile unsigned char Flag_detect_data2;
 volatile unsigned char Flag_rh_get;
 volatile unsigned char Flag_tmp_get;
+volatile unsigned char Flag_DS1302_Write;
+volatile unsigned char Flag_read_only_one;
+
 volatile unsigned char ave;
 
 
 
 void DS1302_Get()
-{
+{	
 	if(Flag_key_menu == MENU_NoADJ)
 	{
+		// 读时间
 		DS1302_ReadTime();
 		DS1302_Data[0] = TIME[2]/16;	//时
 		DS1302_Data[1] = TIME[2]&0x0f;
@@ -35,12 +39,17 @@ void DS1302_Get()
 	}
 	else
 	{
-		DS1302_Data_Tmp[0]	= DS1302_Data[0];
-		DS1302_Data_Tmp[1]	= DS1302_Data[1];
-		DS1302_Data_Tmp[2]	= DS1302_Data[2];
-		DS1302_Data_Tmp[3]	= DS1302_Data[3];
-		DS1302_Data_Tmp[4]	= DS1302_Data[4];
-		DS1302_Data_Tmp[5]	= DS1302_Data[5];
+		// 不读时间
+		if(Flag_read_only_one == 1)
+		{
+			Flag_read_only_one = 0;
+			DS1302_Data_Tmp[0]	= DS1302_Data[0];
+			DS1302_Data_Tmp[1]	= DS1302_Data[1];
+			DS1302_Data_Tmp[2]	= DS1302_Data[2];
+			DS1302_Data_Tmp[3]	= DS1302_Data[3];
+			DS1302_Data_Tmp[4]	= DS1302_Data[4];
+			DS1302_Data_Tmp[5]	= DS1302_Data[5];
+		}
 	}
 	//DisplayData[0] = smgduan[TIME[2]/16];				//时
 	//DisplayData[1] = smgduan[TIME[2]&0x0f];				 
@@ -131,6 +140,8 @@ void Dete_Data()
 {
 	//int ret1, ret2;
 	unsigned char tmp;
+	static volatile unsigned char flag_adj_sec;
+	unsigned char time_write_tmp[3];
 	//static unsigned char ave1;
 	//static unsigned char ave2;
 	
@@ -156,31 +167,13 @@ void Dete_Data()
 		Flag_detect_data2 = 1;
 	}
 	
-	/*if(Flag_key_menu = MENU_ADJ_HOUR)
+	if(Flag_key_menu == MENU_ADJ_HOUR)
 	{
 		// 时间停止增加(√)
 		// 时间闪烁(√)
-		// 时间调整按键生效
-		if(i = 0)// 第一次调用该程序
-		{
-			for(i=0; i<3; i++)
-				DS1302_Data_Tmp[i] = TIME[i];
-			i = -1;
-		}
-		
-		if(Flag_key_incre == 1)
-		{
-			Flag_key_incre = 0;	
-			DS1302_Data_Tmp[2]++;
-		}
-		else if(Flag_key_decre == 1)
-		{
-			Flag_key_decre = 0;
-			DS1302_Data_Tmp[2]--;
-		}
-	}
-	else if(Flag_key_menu == MENU_ADJ_MIN)
-	{
+		// 时间调整按键生效(√)
+		// 循环按菜单键后，写入时间
+		Flag_read_only_one	= 1;
 		if(Flag_key_incre == 1)
 		{
 			Flag_key_incre = 0;	
@@ -192,17 +185,72 @@ void Dete_Data()
 			DS1302_Data_Tmp[1]--;
 		}
 	}
-	else if(Flag_key_menu == MENU_ADJ_SEC)
+	else if(Flag_key_menu == MENU_ADJ_MIN)
 	{
 		if(Flag_key_incre == 1)
 		{
 			Flag_key_incre = 0;	
-			DS1302_Data_Tmp[0]++;
+			if(++DS1302_Data_Tmp[3] >= 10)
+			{
+				if(++DS1302_Data_Tmp[2] >= 6)
+					DS1302_Data_Tmp[2] = 0;
+				DS1302_Data_Tmp[3] = 0;
+			}
 		}
 		else if(Flag_key_decre == 1)
 		{
 			Flag_key_decre = 0;
-			DS1302_Data_Tmp[0]--;
+			if(--DS1302_Data_Tmp[3] >= 255)
+			{
+				if(--DS1302_Data_Tmp[2] >= 255)
+					DS1302_Data_Tmp[2] = 5;
+				DS1302_Data_Tmp[3] = 9;
+			}
 		}
-	}*/
+	}
+	else if(Flag_key_menu == MENU_ADJ_SEC)
+	{
+		flag_adj_sec = 1;// 该分支已执行标志
+		if(Flag_key_incre == 1)
+		{
+			Flag_key_incre = 0;	
+			if(++DS1302_Data_Tmp[5] >= 10)
+			{
+				if(++DS1302_Data_Tmp[4] >= 6)
+					DS1302_Data_Tmp[4] = 0;
+				DS1302_Data_Tmp[5] = 0;
+			}
+		}
+		else if(Flag_key_decre == 1)
+		{
+			Flag_key_decre = 0;
+			if(--DS1302_Data_Tmp[5] >= 255)
+			{
+				if(--DS1302_Data_Tmp[4] >= 255)
+					DS1302_Data_Tmp[4] = 5;
+				DS1302_Data_Tmp[4] = 9;
+			}
+		}
+	}
+	else
+	{
+		if(flag_adj_sec == 1)
+		{
+			flag_adj_sec = 0;
+			
+			time_write_tmp[0] = ((DS1302_Data_Tmp[4]<<4) | DS1302_Data_Tmp[5]);
+			time_write_tmp[1] = ((DS1302_Data_Tmp[2]<<4) | DS1302_Data_Tmp[3]);
+			time_write_tmp[2] = ((DS1302_Data_Tmp[0]<<4) | DS1302_Data_Tmp[1]);
+			
+			DS1302_Write(0x8E,0x00);		 //禁止写保护，就是关闭写保护功能
+			DS1302_Write(WRITE_RTC_ADDR[0], time_write_tmp[0]);
+			DS1302_Write(WRITE_RTC_ADDR[1], time_write_tmp[1]);
+			DS1302_Write(WRITE_RTC_ADDR[2], time_write_tmp[2]);
+			DS1302_Write(WRITE_RTC_ADDR[3], TIME[3]);
+			DS1302_Write(WRITE_RTC_ADDR[4], TIME[4]);
+			DS1302_Write(WRITE_RTC_ADDR[5], TIME[5]);
+			DS1302_Write(0x8E,0x80);		 //打开写保护功能
+			Flag_DS1302_Write = 1;
+		}
+	}
 }

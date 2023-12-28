@@ -64,15 +64,23 @@ void Disp_Data()
 	// 按键调整显示
 	if(Flag_key_menu == MENU_NoADJ)
 	{
-		// 时间显示
-		OLED_ShowNum(48, 0, DS1302_Data[0], 1, 16);
-		OLED_ShowNum(56, 0, DS1302_Data[1], 1, 16);
-		//OLED_ShowChar(45, 2, ':');
-		OLED_ShowNum(72, 0, DS1302_Data[2], 1, 16);
-		OLED_ShowNum(80, 0, DS1302_Data[3], 1, 16);
-		//OLED_ShowChar(75, 2, ':');	
-		OLED_ShowNum(96, 0, DS1302_Data[4], 1, 16);
-		OLED_ShowNum(104,0, DS1302_Data[5], 1, 16);
+		if(Flag_DS1302_Write == 1)
+		{
+			Flag_DS1302_Write = 0;
+			// 写入后第一次不显示
+		}
+		else
+		{
+			// 时间显示
+			OLED_ShowNum(48, 0, DS1302_Data[0], 1, 16);
+			OLED_ShowNum(56, 0, DS1302_Data[1], 1, 16);
+			//OLED_ShowChar(45, 2, ':');
+			OLED_ShowNum(72, 0, DS1302_Data[2], 1, 16);
+			OLED_ShowNum(80, 0, DS1302_Data[3], 1, 16);
+			//OLED_ShowChar(75, 2, ':');	
+			OLED_ShowNum(96, 0, DS1302_Data[4], 1, 16);
+			OLED_ShowNum(104,0, DS1302_Data[5], 1, 16);
+		}
 	}
 	else if(Flag_key_menu == MENU_ADJ_HOUR)
 	{
