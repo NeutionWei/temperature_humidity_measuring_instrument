@@ -15,9 +15,9 @@
 #endif
 
 //---定义ds1302使用的IO口---//
-sbit DSIO = P3^4;
-sbit RST  = P3^5;
-sbit SCLK = P1^5;
+sbit DSIO = P3^7;
+sbit RST  = P2^0;	//RST(CE)
+sbit SCLK = P3^6;
 
 //---定义全局函数---//
 void DS1302_Write(unsigned char addr, unsigned char dat);

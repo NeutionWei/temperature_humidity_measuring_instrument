@@ -1,9 +1,24 @@
+/**
+  ******************************************************************************
+  * @file    display.c
+  * @author  现代电子技术综合设计第10组
+  * @date    2019-04~2019-05
+  * @brief   与显示相关Function
+  ******************************************************************************
+  */ 
+
 #include "display.h"
 #include "oled.h"
 #include "bmp.h"
 #include "detect.h"
 #include "key.h"
 
+
+ /**
+  * @brief  显示模块初始化
+  * @param  none
+  * @retval none
+  */
 void Disp_Init()
 {
 	OLED_Init();			// OLED初始化
@@ -42,24 +57,18 @@ void Disp_Init()
 	OLED_ShowChar(104-24,6, 'H');
 }
 
+
+ /**
+  * @brief  显示温湿度与时钟数据
+  * @param  none
+  * @retval none
+  */
 void Disp_Data()
 {
 	static unsigned int delay_hour;
 	static unsigned int delay_min;
 	static unsigned int delay_sec;
 	
-	/*//OLED_Clear();
-	
-	// 时间显示
-	OLED_ShowNum(48, 0, DS1302_Data[0], 1, 16);
-	OLED_ShowNum(56, 0, DS1302_Data[1], 1, 16);
-	//OLED_ShowChar(45, 2, ':');
-	OLED_ShowNum(72, 0, DS1302_Data[2], 1, 16);
-	OLED_ShowNum(80, 0, DS1302_Data[3], 1, 16);
-	//OLED_ShowChar(75, 2, ':');	
-	OLED_ShowNum(96, 0, DS1302_Data[4], 1, 16);
-	OLED_ShowNum(104,0, DS1302_Data[5], 1, 16);
-*/
 	
 	// 按键调整显示
 	if(Flag_key_menu == MENU_NoADJ)
@@ -190,15 +199,4 @@ void Disp_Data()
 		//OLED_ShowNum(72, 6, DHT11_Data[1]/10, 1, 16);
 		//OLED_ShowNum(80, 6, DHT11_Data[1]%10, 1, 16);
 	}
-/*OLED_Clear();
-	OLED_ShowCHinese(0,0,0);//中
-	OLED_ShowCHinese(18,0,1);//景
-	OLED_ShowCHinese(36,0,2);//园
-	OLED_ShowCHinese(54,0,3);//电
-	OLED_ShowCHinese(72,0,4);//子
-	OLED_ShowCHinese(90,0,5);//科
-	OLED_ShowCHinese(108,0,6);//技
-	OLED_ShowString(0,2,"1.3' OLED TEST");
-	OLED_ShowString(8,2,"ZHONGJINGYUAN");  
-	OLED_ShowString(20,4,"2014/05/01"); */ 
 }

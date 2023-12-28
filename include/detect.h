@@ -10,9 +10,11 @@ extern unsigned char Flag_detect_data2;
 extern unsigned char Flag_rh_get;
 extern unsigned char Flag_tmp_get;
 extern unsigned char Flag_DS1302_Write;
-void DS1302_Get();
-void DHT11_Get();
-void Dete_Data();
+
+
+void DS1302_Get(); // 获得时钟数据
+void DHT11_Get();	 // 获得温湿度数据
+void Dete_Data();	 // 数据加工
 
 #endif /* _DETECT_H */
 

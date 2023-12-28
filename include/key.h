@@ -2,7 +2,6 @@
 #define _KEY_H
 
 
-//#define		key_input	  ((PORT_K_U<<1) | PORT_K_D)
 #define 	key_state_0   0		// 按键初始状态
 #define		key_state_1   1		// 按键按下确认状态
 #define		key_state_2   2		// 按键释放状态
@@ -26,7 +25,7 @@ extern volatile unsigned char Flag_key_decre;
 extern volatile unsigned char Flag_key_menu;
 
 
-void Keys_Scan();
+void Keys_Scan();  // 按键扫描
 
 
 

@@ -1,29 +1,15 @@
+/**
+  ******************************************************************************
+  * @file    key.c
+  * @author  现代电子技术综合设计第10组
+  * @date    2019-04~2019-05
+  * @brief   按键相关Function
+  ******************************************************************************
+  */ 
+
+
 #include "key.h"
 #include <reg52.h>
-
-/*
-sbit key8 = P1^7;
-sbit key1 = P1^0;
-sbit p00 = P0^0;
-sbit p01 = P0^1;
-sbit p06 = P0^6;
-
-
-void key_test()
-{
-	key8 = 0;
-	if(key1 == 0)
-	{
-		Delayms(20);
-		if(key1 == 0)
-		{
-			if(++Flag_key_menu >= MENU_ADJ_NUM)
-				Flag_key_menu = 0;
-		}
-		while(!key1);
-	}
-	
-}*/
 
 
 
@@ -31,19 +17,23 @@ volatile unsigned char Flag_key_incre;
 volatile unsigned char Flag_key_decre;
 volatile unsigned char Flag_key_menu;
 
-//sbit GND = P1^7;
-sbit PORT_K_MENU = P0^7;
-sbit PORT_K_INCR = P0^6;
-sbit PORT_K_DECR = P0^5;
+sbit PORT_K_MENU = P2^1;
+sbit PORT_K_INCR = P2^2;
+sbit PORT_K_DECR = P2^3;
 sbit LED1 = P0^1;
 
+
+ /**
+  * @brief  按键扫描
+  * @param  none
+  * @retval none
+  */
 void Keys_Scan()
 {
 	static unsigned int key_state = 0;
 	unsigned char key_press;
 	unsigned char key_input;
-	//u8 key_return = 0;	
-  //GND = 0;
+	
 	key_input  = !PORT_K_MENU;
 	key_input  = key_input<<1;
 	key_input |= (!PORT_K_INCR);
@@ -59,7 +49,6 @@ void Keys_Scan()
 			if (key_press)
 			{
 				key_state = key_state_1;
-				//ON_LED_R();
 			}
 			break;
 			

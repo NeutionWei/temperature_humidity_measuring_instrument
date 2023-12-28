@@ -1,4 +1,12 @@
-//*****************************头文件声明***************************
+/**
+  ******************************************************************************
+  * @file    detect.c
+  * @author  现代电子技术综合设计第10组
+  * @date    2019-04~2019-05
+  * @brief   数据获取与加工相关Function
+  ******************************************************************************
+  */ 
+
 #include "reg52.h"
 #include "display.h"
 #include "oled.h"
@@ -7,7 +15,6 @@
 #include "dht11.h"
 #include "key.h"
 
-//sbit p01 = P0^1;
 
 volatile unsigned char DS1302_Data[6];
 volatile unsigned char DS1302_Data_Tmp[6];
@@ -23,7 +30,11 @@ volatile unsigned char Flag_read_only_get;
 volatile unsigned char ave;
 
 
-
+ /**
+  * @brief  获得时钟数据
+  * @param  none
+  * @retval none
+  */
 void DS1302_Get()
 {	
 	if(Flag_key_menu == MENU_NoADJ)
@@ -52,17 +63,15 @@ void DS1302_Get()
 			DS1302_Data_Tmp[5]	= DS1302_Data[5];
 		}
 	}
-	//DisplayData[0] = smgduan[TIME[2]/16];				//时
-	//DisplayData[1] = smgduan[TIME[2]&0x0f];				 
-	//DisplayData[2] = 0x40;
-	//DisplayData[3] = smgduan[TIME[1]/16];				//分
-	//DisplayData[4] = smgduan[TIME[1]&0x0f];	
-	//DisplayData[5] = 0x40;
-	//DisplayData[6] = smgduan[TIME[0]/16];				//秒
-	//DisplayData[7] = smgduan[TIME[0]&0x0f];
 }
 
 
+
+ /**
+  * @brief  获得温湿度数据
+  * @param  none
+  * @retval none
+  */
 void DHT11_Get()
 {
 	static volatile unsigned char temp1, temp2, oldtemp1, oldtemp2;
@@ -84,18 +93,20 @@ void DHT11_Get()
 		delay = 0;
 		
 		DHT11_receive();
-		temp1 = RH;         
+		temp1 = RH; 
+		
 		if(temp1 >= oldtemp1)
 			delta = temp1 - oldtemp1;
 		else
 			delta = oldtemp1 - temp1;
+
 		if(delta <= 20)
 		{
 			DHT11_Data_Tmp[0] = temp1;				//接收湿度高八位
 			oldtemp1 = temp1;
 			Flag_rh_get = 1;
 		}
-		//DHT11_Data_Tmp[0] = RH;				//接收湿度高八位
+		//DHT11_Data_Tmp[0] = RH;			  	//接收湿度高八位
 		//DHT11_Data_Tmp[1] = RL;        //接收湿度低八位
 		
 		temp2 = TH;         
@@ -103,6 +114,7 @@ void DHT11_Get()
 			delta = temp2 - oldtemp2;
 		else
 			delta = oldtemp2 - temp2;
+
 		if(delta <= 3)
 		{
 			DHT11_Data_Tmp[1] = temp2;         //接收温度高八位
@@ -110,58 +122,34 @@ void DHT11_Get()
 			Flag_tmp_get = 1;
 		}
 	}
-	//DHT11_Data_Tmp[3] = TL;         //接收温度低八位
-	/*int hum, temp;
-	
-	if(0 == dht11_init())
-	{
-		if(0 == dht11_read(&hum, &temp))
-		{
-			//Flag_DHT11_Get = 1;
-			OLED_ShowNum(25, 4, hum,  2, 16);
-			OLED_ShowNum(35, 4, temp, 2, 16);
-		}
-	}
-	
-	while (1)
-	{
-		if (dht11_read(&hum, &temp) !=0 )
-		{
-			//printf("\n\rdht11 read err!\n\r");
-			dht11_init();
-		}
-		else
-		{
-			//printf("\n\rDHT11 : %d humidity, %d temperature\n\r", hum, temp);
-		}
-	}*/
+
 }
 
+
+
+ /**
+  * @brief  数据加工
+  * @param  none
+  * @retval none
+  */
 void Dete_Data()
 {
-	//int ret1, ret2;
 	unsigned char tmp;
 	static volatile unsigned char flag_adj_sec;
 	unsigned char time_write_tmp[3];
-	//static unsigned char ave1;
-	//static unsigned char ave2;
 	
-	//ret1 = Ave_Process();
-	//ret2 = Ave_Process(DHT11_Data_Tmp[1], &ave2);
-	
-	//if(0 == ret1)
 	if(Flag_rh_get == 1)
 	{
-		Flag_rh_get = 0;//zengjia
+		Flag_rh_get = 0;
 		tmp = DHT11_Data_Tmp[0];
 		DHT11_Data[0] = tmp/10;
 		DHT11_Data[1] = tmp%10;
 		Flag_detect_data1 = 1;
 	}
-	//if(0 == ret2)
+	
 	if(Flag_tmp_get == 1)
 	{
-		Flag_tmp_get = 0;//zengjia
+		Flag_tmp_get = 0;
 		tmp = DHT11_Data_Tmp[1];
 		DHT11_Data[2] = tmp/10;
 		DHT11_Data[3] = tmp%10;

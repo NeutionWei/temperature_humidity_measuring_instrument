@@ -4,8 +4,8 @@
 
 
 
-void Disp_Init();
-void Disp_Data();
+void Disp_Init();// 显示模块初始化
+void Disp_Data();// 显示温湿度与时钟数据
 
 
 

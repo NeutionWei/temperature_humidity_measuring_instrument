@@ -1,4 +1,4 @@
-C51 COMPILER V9.52.0.0   DHT11                                                             05/07/2019 12:46:32 PAGE 1   
+C51 COMPILER V9.52.0.0   DHT11                                                             05/14/2019 12:27:07 PAGE 1   
 
 
 C51 COMPILER V9.52.0.0, COMPILATION OF MODULE DHT11
@@ -14,7 +14,7 @@ line level    source
    4          #define uchar unsigned char
    5          #define uint  unsigned int
    6          
-   7          sbit Data=P3^2;   //定义数据线
+   7          sbit Data=P1^7;   //定义数据线
    8          uchar rec_dat[9];   //用于显示的接收数据数组
    9          
   10          unsigned char RH,RL,TH,TL;
@@ -62,7 +62,7 @@ line level    source
   52   1        
   53   1          DHT11_start();
   54   1          if(Data==0)
-C51 COMPILER V9.52.0.0   DHT11                                                             05/07/2019 12:46:32 PAGE 2   
+C51 COMPILER V9.52.0.0   DHT11                                                             05/14/2019 12:27:07 PAGE 2   
 
   55   1          {
   56   2              while(Data==0);   //等待拉高     
@@ -96,20 +96,6 @@ line level    source
   84   2          }
   85   1      }
   86          
-  87          /*这里使用lcd1602来显示采集到的数据，lcd1602驱动程序在博主的51单片机系列博文中有详细讲解
-  88          void main()
-  89          {
-  90             uchar i;   
-  91             lcd_init();   //lcd1602初始化
-  92             while(1)
-  93             {   
-  94                 DHT11_delay_ms(1500);    //DHT11上电后要等待1S以越过不稳定状态在此期间不能发送任何指令
-  95                 DHT11_receive();
-  96                 lcd_write_command(0x80);   //从lcd1602第一行第一个位置开始显示
-  97                 for(i=0;i<9;i++)
-  98                 lcd_write_data(rec_dat[i]);   //显示数据                      
-  99             }
- 100          }*/
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
