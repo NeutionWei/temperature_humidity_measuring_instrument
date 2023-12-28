@@ -1,4 +1,4 @@
-C51 COMPILER V9.52.0.0   KEY                                                               04/22/2019 15:28:00 PAGE 1   
+C51 COMPILER V9.52.0.0   KEY                                                               04/23/2019 16:49:35 PAGE 1   
 
 
 C51 COMPILER V9.52.0.0, COMPILATION OF MODULE KEY
@@ -9,102 +9,115 @@ COMPILER INVOKED BY: D:\Keil_v4\C51\BIN\C51.EXE source\key.c BROWSE INCDIR(.\inc
 line level    source
 
    1          #include "key.h"
-   2          
+   2          #include <reg52.h>
    3          
-   4          //#define   key_input   ((PORT_K_U<<1) | PORT_K_D)
-   5          #define   key_state_0   0   // 按键初始状态
-   6          #define   key_state_1   1   // 按键按下确认状态
-   7          #define   key_state_2   2   // 按键释放状态
-   8          #define   key_state_3   3   // 按键长按确认状态
-   9          
-  10          #define   KEY_DECRE (1<<0)
-  11          #define   KEY_INCRE (1<<1)
-  12          #define   KEY_MENU  (1<<2)
-  13          
-  14          enum {
-  15            MENU_NoADJ,
-  16            MENU_ADJ_HOUR,
-  17            MENU_ADJ_MIN,
-  18            MENU_ADJ_SEC,
-  19            MENU_ADJ_NUM,
-  20          };
-  21          
-  22          volatile unsigned char Flag_key_incre;
-  23          volatile unsigned char Flag_key_decre;
-  24          volatile unsigned char Flag_key_menu;
-  25          
-  26          void Keys_Scan()
-  27          {
-  28   1        static unsigned int key_state = 0;
-  29   1        unsigned char key_press;
-  30   1        unsigned char key_input;
-  31   1        //u8 key_return = 0;  
-  32   1              
-  33   1        //key_input  = !PORT_K_U;
-  34   1        //key_input  = key_input<<1;
-  35   1        //key_input |= (!PORT_K_D);
-  36   1        key_press  = key_input;         // 读按键I/O电平
-  37   1        switch (key_state)
-  38   1        {
-  39   2          case key_state_0:         // 按键初始态
-  40   2            //if (key_press) key_state = key_state_1; // 键被按下，状态转换到键确认态
-  41   2            if (key_press)
-  42   2            {
-  43   3              key_state = key_state_1;
-  44   3              //ON_LED_R();
-  45   3            }
-  46   2            break;
-  47   2            
-  48   2          case key_state_1:         // 按键确认态
-  49   2            if (key_press)
-  50   2            {
-  51   3              if(key_press & KEY_INCRE)
-  52   3              {
-  53   4                  Flag_key_incre = 1;
-  54   4              }
-C51 COMPILER V9.52.0.0   KEY                                                               04/22/2019 15:28:00 PAGE 2   
+   4          /*
+   5          sbit key8 = P1^7;
+   6          sbit key1 = P1^0;
+   7          sbit p00 = P0^0;
+   8          sbit p01 = P0^1;
+   9          sbit p06 = P0^6;
+  10          
+  11          
+  12          void key_test()
+  13          {
+  14            key8 = 0;
+  15            if(key1 == 0)
+  16            {
+  17              Delayms(20);
+  18              if(key1 == 0)
+  19              {
+  20                if(++Flag_key_menu >= MENU_ADJ_NUM)
+  21                  Flag_key_menu = 0;
+  22              }
+  23              while(!key1);
+  24            }
+  25            
+  26          }*/
+  27          
+  28          
+  29          
+  30          volatile unsigned char Flag_key_incre;
+  31          volatile unsigned char Flag_key_decre;
+  32          volatile unsigned char Flag_key_menu;
+  33          
+  34          sbit GND = P1^7;
+  35          sbit PORT_K_MENU = P1^0;
+  36          sbit LED1 = P0^1;
+  37          
+  38          void Keys_Scan()
+  39          {
+  40   1        static unsigned int key_state = 0;
+  41   1        unsigned char key_press;
+  42   1        unsigned char key_input;
+  43   1        //u8 key_return = 0;  
+  44   1        GND = 0;      
+  45   1        key_input  = !PORT_K_MENU;
+  46   1        key_input  = key_input<<2;
+  47   1        //key_input |= (!PORT_K_D);
+  48   1        key_press  = key_input;         // 读按键I/O电平
+  49   1        switch (key_state)
+  50   1        {
+  51   2          case key_state_0:         // 按键初始态
+  52   2            //if (key_press) key_state = key_state_1; // 键被按下，状态转换到键确认态
+  53   2            if (key_press)
+  54   2            {
+C51 COMPILER V9.52.0.0   KEY                                                               04/23/2019 16:49:35 PAGE 2   
 
-  55   3              else if(key_press & KEY_DECRE)
-  56   3              {
-  57   4                  Flag_key_decre = 1;
-  58   4              }
-  59   3              else if(key_press & KEY_MENU)
-  60   3              {
-  61   4                // 每按一次，光标时间向后挪，直到最后才正常显示时间
-  62   4                //Flag_key_menu = 1;
-  63   4                if(++Flag_key_menu >= MENU_ADJ_NUM)
-  64   4                  Flag_key_menu = 0;
-  65   4              }
-  66   3              key_state = key_state_2;
-  67   3            }
-  68   2            else
-  69   2              key_state = key_state_0;  // 按键已抬起，转换到按键初始态
-  70   2            break;
-  71   2          case key_state_2:
-  72   2            if (!key_press)
-  73   2            {
-  74   3      
-  75   3              key_state = key_state_0;  // 按键已释放，转换到按键初始态
-  76   3            }
-  77   2            break;
-  78   2      /*    case key_state_3:
-  79   2            if (!key_press)
-  80   2              key_state = key_state_0; //按键已释放，转换到按键初始态
-  81   2            
-  82   2            break;*/
-  83   2          default:break;
-  84   2        } 
-  85   1        //return key_return;
-  86   1      }
-  87          
+  55   3              key_state = key_state_1;
+  56   3              //ON_LED_R();
+  57   3            }
+  58   2            break;
+  59   2            
+  60   2          case key_state_1:         // 按键确认态
+  61   2            if (key_press)
+  62   2            {
+  63   3              if(key_press & KEY_INCRE)
+  64   3              {
+  65   4                  //Flag_key_incre = 1;
+  66   4              }
+  67   3              else if(key_press & KEY_DECRE)
+  68   3              {
+  69   4                  //Flag_key_decre = 1;
+  70   4              }
+  71   3              else if(key_press & KEY_MENU)
+  72   3              {
+  73   4                // 每按一次，光标时间向后挪，直到最后才正常显示时间
+  74   4                //Flag_key_menu = 1;
+  75   4                //LED1 = ~LED1;
+  76   4                //Flag_key_menu = !Flag_key_menu;
+  77   4                if(++Flag_key_menu >= MENU_ADJ_NUM)
+  78   4                  Flag_key_menu = MENU_NoADJ;
+  79   4              }
+  80   3              key_state = key_state_2;
+  81   3            }
+  82   2            else
+  83   2              key_state = key_state_0;  // 按键已抬起，转换到按键初始态
+  84   2            break;
+  85   2          case key_state_2:
+  86   2            if (!key_press)
+  87   2            {
+  88   3              key_state = key_state_0;  // 按键已释放，转换到按键初始态
+  89   3            }
+  90   2            break;
+  91   2      /*    case key_state_3:
+  92   2            if (!key_press)
+  93   2              key_state = key_state_0; //按键已释放，转换到按键初始态
+  94   2            
+  95   2            break;*/
+  96   2          default:break;
+  97   2        } 
+  98   1        //return key_return;
+  99   1      }
+ 100          
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =     83    ----
+   CODE SIZE        =     88    ----
    CONSTANT SIZE    =   ----    ----
    XDATA SIZE       =   ----    ----
    PDATA SIZE       =   ----    ----
-   DATA SIZE        =      5       1
+   DATA SIZE        =      5    ----
    IDATA SIZE       =   ----    ----
    BIT SIZE         =   ----    ----
 END OF MODULE INFORMATION.

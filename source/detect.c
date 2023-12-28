@@ -5,6 +5,7 @@
 #include "detect.h"
 #include "ds1302.h"
 #include "dht11.h"
+#include "key.h"
 
 sbit p01 = P0^1;
 
@@ -22,13 +23,25 @@ volatile unsigned char ave;
 
 void DS1302_Get()
 {
-  DS1302_ReadTime();
-	DS1302_Data[0] = TIME[2]/16;	//时
-	DS1302_Data[1] = TIME[2]&0x0f;
-	DS1302_Data[2] = TIME[1]/16;	//分
-	DS1302_Data[3] = TIME[1]&0x0f;
-	DS1302_Data[4] = TIME[0]/16;	//秒
-	DS1302_Data[5] = TIME[0]&0x0f;
+	if(Flag_key_menu == MENU_NoADJ)
+	{
+		DS1302_ReadTime();
+		DS1302_Data[0] = TIME[2]/16;	//时
+		DS1302_Data[1] = TIME[2]&0x0f;
+		DS1302_Data[2] = TIME[1]/16;	//分
+		DS1302_Data[3] = TIME[1]&0x0f;
+		DS1302_Data[4] = TIME[0]/16;	//秒
+		DS1302_Data[5] = TIME[0]&0x0f;
+	}
+	else
+	{
+		DS1302_Data_Tmp[0]	= DS1302_Data[0];
+		DS1302_Data_Tmp[1]	= DS1302_Data[1];
+		DS1302_Data_Tmp[2]	= DS1302_Data[2];
+		DS1302_Data_Tmp[3]	= DS1302_Data[3];
+		DS1302_Data_Tmp[4]	= DS1302_Data[4];
+		DS1302_Data_Tmp[5]	= DS1302_Data[5];
+	}
 	//DisplayData[0] = smgduan[TIME[2]/16];				//时
 	//DisplayData[1] = smgduan[TIME[2]&0x0f];				 
 	//DisplayData[2] = 0x40;
@@ -80,7 +93,7 @@ void DHT11_Get()
 			delta = temp2 - oldtemp2;
 		else
 			delta = oldtemp2 - temp2;
-		if(delta <= 2)
+		if(delta <= 3)
 		{
 			DHT11_Data_Tmp[1] = temp2;         //接收温度高八位
 			oldtemp2 = temp2;
@@ -127,7 +140,7 @@ void Dete_Data()
 	//if(0 == ret1)
 	if(Flag_rh_get == 1)
 	{
-		//Flag_rh_get = 0;zengjia
+		Flag_rh_get = 0;//zengjia
 		tmp = DHT11_Data_Tmp[0];
 		DHT11_Data[0] = tmp/10;
 		DHT11_Data[1] = tmp%10;
@@ -136,17 +149,17 @@ void Dete_Data()
 	//if(0 == ret2)
 	if(Flag_tmp_get == 1)
 	{
-		//Flag_tmp_get = 0;zengjia
+		Flag_tmp_get = 0;//zengjia
 		tmp = DHT11_Data_Tmp[1];
 		DHT11_Data[2] = tmp/10;
 		DHT11_Data[3] = tmp%10;
 		Flag_detect_data2 = 1;
 	}
 	
-	if(Flag_key_menu = MENU_ADJ_HOUR)
+	/*if(Flag_key_menu = MENU_ADJ_HOUR)
 	{
 		// 时间停止增加(√)
-		// 时间闪烁
+		// 时间闪烁(√)
 		// 时间调整按键生效
 		if(i = 0)// 第一次调用该程序
 		{
@@ -191,5 +204,5 @@ void Dete_Data()
 			Flag_key_decre = 0;
 			DS1302_Data_Tmp[0]--;
 		}
-	}	
+	}*/
 }

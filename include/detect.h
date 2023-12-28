@@ -2,6 +2,7 @@
 #define _DETECT_H
 
 extern unsigned char DS1302_Data[6];
+extern unsigned char DS1302_Data_Tmp[6];
 extern unsigned char DHT11_Data[4];
 extern unsigned char DHT11_Data_Tmp[2];
 extern unsigned char Flag_detect_data1;

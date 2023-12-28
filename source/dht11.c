@@ -4,7 +4,7 @@
 #define uchar unsigned char
 #define uint  unsigned int
 
-sbit Data=P1^6;   //定义数据线
+sbit Data=P3^2;   //定义数据线
 uchar rec_dat[9];   //用于显示的接收数据数组
 
 unsigned char RH,RL,TH,TL;
