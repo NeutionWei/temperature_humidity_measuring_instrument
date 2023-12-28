@@ -1,0 +1,10 @@
+".\output\STARTUP.obj",
+".\output\dht11.obj",
+".\output\display.obj",
+".\output\ds1302.obj",
+".\output\main.obj",
+".\output\oled.obj",
+".\output\key.obj",
+".\output\detect.obj" 
+TO ".\output\code" 
+PRINT(".\code.m51") RAMSIZE(256) 

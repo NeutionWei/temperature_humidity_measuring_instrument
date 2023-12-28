@@ -1,0 +1,1 @@
+copy .\output\code.hex code.hex

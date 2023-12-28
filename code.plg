@@ -1,0 +1,846 @@
+<html>
+<body>
+<pre>
+<h1>礦ision Build Log</h1>
+<h2>Project:</h2>
+C:\Users\Neutionwei\Desktop\现代电子技术综合设计\code\code.uvproj
+Project File Date:  04/08/2019
+
+<h2>Output:</h2>
+compiling main.c...
+source\main.c(40): warning C206: 'Disp_Init': missing function-prototype
+source\main.c - 0 Error(s), 1 Warning(s).
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling dht11.c...
+compiling display.c...
+compiling ds1302.c...
+compiling oled.c...
+source\oled.c(154): warning C294: unreachable code
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DHT11_INIT?DHT11
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DHT11_WAIT_ACK?DHT11
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DHT11_READ?DHT11
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DS1302INIT?DS1302
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DS1302READTIME?DS1302
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?OLED_DISPLAY_ON?OLED
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?OLED_DISPLAY_OFF?OLED
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OLED_SHOWNUM?OLED
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OLED_SHOWSTRING?OLED
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OLED_SHOWCHINESE?OLED
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OLED_DRAWBMP?OLED
+Program Size: data=53.0 xdata=0 code=4142
+creating hex file from ".\output\code"...
+".\output\code" - 0 Error(s), 12 Warning(s).
+Rebuild target 'Target 1'
+assembling STARTUP.A51...
+compiling dht11.c...
+compiling display.c...
+compiling ds1302.c...
+compiling main.c...
+source\main.c(40): warning C206: 'Disp_Init': missing function-prototype
+compiling oled.c...
+source\oled.c(154): warning C294: unreachable code
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DHT11_INIT?DHT11
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DHT11_WAIT_ACK?DHT11
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DHT11_READ?DHT11
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DS1302INIT?DS1302
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DS1302READTIME?DS1302
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?OLED_DISPLAY_ON?OLED
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?OLED_DISPLAY_OFF?OLED
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OLED_SHOWNUM?OLED
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OLED_SHOWSTRING?OLED
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OLED_SHOWCHINESE?OLED
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OLED_DRAWBMP?OLED
+Program Size: data=53.0 xdata=0 code=4142
+creating hex file from ".\output\code"...
+".\output\code" - 0 Error(s), 13 Warning(s).
+Rebuild target 'Target 1'
+assembling STARTUP.A51...
+compiling dht11.c...
+compiling display.c...
+compiling ds1302.c...
+compiling main.c...
+compiling oled.c...
+source\oled.c(154): warning C294: unreachable code
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DHT11_INIT?DHT11
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DHT11_WAIT_ACK?DHT11
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DHT11_READ?DHT11
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DS1302INIT?DS1302
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DS1302READTIME?DS1302
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?OLED_DISPLAY_ON?OLED
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?OLED_DISPLAY_OFF?OLED
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OLED_SHOWNUM?OLED
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OLED_SHOWSTRING?OLED
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OLED_SHOWCHINESE?OLED
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OLED_DRAWBMP?OLED
+Program Size: data=53.0 xdata=0 code=4142
+creating hex file from ".\output\code"...
+".\output\code" - 0 Error(s), 12 Warning(s).
+Rebuild target 'Target 1'
+assembling STARTUP.A51...
+compiling dht11.c...
+compiling display.c...
+compiling ds1302.c...
+compiling main.c...
+compiling oled.c...
+source\oled.c(154): warning C294: unreachable code
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DHT11_INIT?DHT11
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DHT11_WAIT_ACK?DHT11
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DHT11_READ?DHT11
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DS1302INIT?DS1302
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DS1302READTIME?DS1302
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?OLED_DISPLAY_ON?OLED
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?OLED_DISPLAY_OFF?OLED
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OLED_SHOWNUM?OLED
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OLED_SHOWSTRING?OLED
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OLED_SHOWCHINESE?OLED
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OLED_DRAWBMP?OLED
+Program Size: data=53.0 xdata=0 code=4142
+creating hex file from ".\output\code"...
+".\output\code" - 0 Error(s), 12 Warning(s).
+Rebuild target 'Target 1'
+assembling STARTUP.A51...
+compiling dht11.c...
+compiling display.c...
+compiling ds1302.c...
+compiling main.c...
+compiling oled.c...
+source\oled.c(154): warning C294: unreachable code
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DHT11_INIT?DHT11
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DHT11_WAIT_ACK?DHT11
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DHT11_READ?DHT11
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DS1302INIT?DS1302
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DS1302READTIME?DS1302
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?OLED_DISPLAY_ON?OLED
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?OLED_DISPLAY_OFF?OLED
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OLED_SHOWNUM?OLED
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OLED_SHOWSTRING?OLED
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OLED_SHOWCHINESE?OLED
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OLED_DRAWBMP?OLED
+Program Size: data=53.0 xdata=0 code=4142
+creating hex file from ".\output\code"...
+".\output\code" - 0 Error(s), 12 Warning(s).
+Rebuild target 'Target 1'
+assembling STARTUP.A51...
+compiling dht11.c...
+compiling display.c...
+compiling ds1302.c...
+compiling main.c...
+source\main.c(50): warning C206: 'OLED_Clear': missing function-prototype
+source\main.c(51): warning C206: 'OLED_ShowCHinese': missing function-prototype
+source\main.c(51): error C267: 'OLED_ShowCHinese': requires ANSI-style prototype
+compiling oled.c...
+source\oled.c(154): warning C294: unreachable code
+Target not created
+Rebuild target 'Target 1'
+assembling STARTUP.A51...
+compiling dht11.c...
+compiling display.c...
+compiling ds1302.c...
+compiling main.c...
+source\main.c(51): warning C206: 'OLED_Clear': missing function-prototype
+source\main.c(52): warning C206: 'OLED_ShowCHinese': missing function-prototype
+source\main.c(52): error C267: 'OLED_ShowCHinese': requires ANSI-style prototype
+compiling oled.c...
+source\oled.c(154): warning C294: unreachable code
+Target not created
+Rebuild target 'Target 1'
+assembling STARTUP.A51...
+compiling dht11.c...
+compiling display.c...
+compiling ds1302.c...
+compiling main.c...
+D:\Keil_v4\C51\Inc\REG51.h(13): error C231: 'P0': redefinition
+D:\Keil_v4\C51\Inc\REG51.h(14): error C231: 'P1': redefinition
+D:\Keil_v4\C51\Inc\REG51.h(15): error C231: 'P2': redefinition
+D:\Keil_v4\C51\Inc\REG51.h(16): error C231: 'P3': redefinition
+D:\Keil_v4\C51\Inc\REG51.h(17): error C231: 'PSW': redefinition
+D:\Keil_v4\C51\Inc\REG51.h(18): error C231: 'ACC': redefinition
+D:\Keil_v4\C51\Inc\REG51.h(19): error C231: 'B': redefinition
+D:\Keil_v4\C51\Inc\REG51.h(20): error C231: 'SP': redefinition
+D:\Keil_v4\C51\Inc\REG51.h(21): error C231: 'DPL': redefinition
+D:\Keil_v4\C51\Inc\REG51.h(22): error C231: 'DPH': redefinition
+D:\Keil_v4\C51\Inc\REG51.h(23): error C231: 'PCON': redefinition
+D:\Keil_v4\C51\Inc\REG51.h(24): error C231: 'TCON': redefinition
+D:\Keil_v4\C51\Inc\REG51.h(25): error C231: 'TMOD': redefinition
+D:\Keil_v4\C51\Inc\REG51.h(26): error C231: 'TL0': redefinition
+D:\Keil_v4\C51\Inc\REG51.h(27): error C231: 'TL1': redefinition
+D:\Keil_v4\C51\Inc\REG51.h(28): error C231: 'TH0': redefinition
+D:\Keil_v4\C51\Inc\REG51.h(29): error C231: 'TH1': redefinition
+D:\Keil_v4\C51\Inc\REG51.h(30): error C231: 'IE': redefinition
+D:\Keil_v4\C51\Inc\REG51.h(31): error C231: 'IP': redefinition
+D:\Keil_v4\C51\Inc\REG51.h(32): error C231: 'SCON': redefinition
+D:\Keil_v4\C51\Inc\REG51.h(33): error C231: 'SBUF': redefinition
+D:\Keil_v4\C51\Inc\REG51.h(38): error C231: 'CY': redefinition
+D:\Keil_v4\C51\Inc\REG51.h(39): error C231: 'AC': redefinition
+D:\Keil_v4\C51\Inc\REG51.h(40): error C231: 'F0': redefinition
+D:\Keil_v4\C51\Inc\REG51.h(41): error C231: 'RS1': redefinition
+D:\Keil_v4\C51\Inc\REG51.h(42): error C231: 'RS0': redefinition
+D:\Keil_v4\C51\Inc\REG51.h(43): error C231: 'OV': redefinition
+D:\Keil_v4\C51\Inc\REG51.h(44): error C231: 'P': redefinition
+D:\Keil_v4\C51\Inc\REG51.h(47): error C231: 'TF1': redefinition
+D:\Keil_v4\C51\Inc\REG51.h(48): error C231: 'TR1': redefinition
+D:\Keil_v4\C51\Inc\REG51.h(49): error C231: 'TF0': redefinition
+D:\Keil_v4\C51\Inc\REG51.h(50): error C231: 'TR0': redefinition
+D:\Keil_v4\C51\Inc\REG51.h(51): error C231: 'IE1': redefinition
+D:\Keil_v4\C51\Inc\REG51.h(52): error C231: 'IT1': redefinition
+D:\Keil_v4\C51\Inc\REG51.h(53): error C231: 'IE0': redefinition
+D:\Keil_v4\C51\Inc\REG51.h(54): error C231: 'IT0': redefinition
+D:\Keil_v4\C51\Inc\REG51.h(57): error C231: 'EA': redefinition
+D:\Keil_v4\C51\Inc\REG51.h(58): error C231: 'ES': redefinition
+D:\Keil_v4\C51\Inc\REG51.h(59): error C231: 'ET1': redefinition
+D:\Keil_v4\C51\Inc\REG51.h(60): error C231: 'EX1': redefinition
+D:\Keil_v4\C51\Inc\REG51.h(61): error C231: 'ET0': redefinition
+D:\Keil_v4\C51\Inc\REG51.h(62): error C231: 'EX0': redefinition
+D:\Keil_v4\C51\Inc\REG51.h(65): error C231: 'PS': redefinition
+D:\Keil_v4\C51\Inc\REG51.h(66): error C231: 'PT1': redefinition
+D:\Keil_v4\C51\Inc\REG51.h(67): error C231: 'PX1': redefinition
+D:\Keil_v4\C51\Inc\REG51.h(68): error C231: 'PT0': redefinition
+D:\Keil_v4\C51\Inc\REG51.h(69): error C231: 'PX0': redefinition
+D:\Keil_v4\C51\Inc\REG51.h(72): error C231: 'RD': redefinition
+D:\Keil_v4\C51\Inc\REG51.h(73): error C231: 'WR': redefinition
+D:\Keil_v4\C51\Inc\REG51.h(74): error C231: 'T1': redefinition
+D:\Keil_v4\C51\Inc\REG51.h(75): error C231: 'T0': redefinition
+D:\Keil_v4\C51\Inc\REG51.h(76): error C231: 'INT1': redefinition
+D:\Keil_v4\C51\Inc\REG51.h(77): error C231: 'INT0': redefinition
+D:\Keil_v4\C51\Inc\REG51.h(78): error C231: 'TXD': redefinition
+D:\Keil_v4\C51\Inc\REG51.h(79): error C231: 'RXD': redefinition
+D:\Keil_v4\C51\Inc\REG51.h(82): error C231: 'SM0': redefinition
+D:\Keil_v4\C51\Inc\REG51.h(83): error C231: 'SM1': redefinition
+D:\Keil_v4\C51\Inc\REG51.h(84): error C231: 'SM2': redefinition
+D:\Keil_v4\C51\Inc\REG51.h(85): error C231: 'REN': redefinition
+D:\Keil_v4\C51\Inc\REG51.h(86): error C231: 'TB8': redefinition
+D:\Keil_v4\C51\Inc\REG51.h(87): error C231: 'RB8': redefinition
+D:\Keil_v4\C51\Inc\REG51.h(88): error C231: 'TI': redefinition
+D:\Keil_v4\C51\Inc\REG51.h(89): error C231: 'RI': redefinition
+compiling oled.c...
+source\oled.c(154): warning C294: unreachable code
+Target not created
+Rebuild target 'Target 1'
+assembling STARTUP.A51...
+compiling dht11.c...
+compiling display.c...
+compiling ds1302.c...
+compiling main.c...
+compiling oled.c...
+source\oled.c(154): warning C294: unreachable code
+linking...
+*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
+    SYMBOL:  BMP2
+    MODULE:  .\output\main.obj (MAIN)
+*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
+    SYMBOL:  BMP1
+    MODULE:  .\output\main.obj (MAIN)
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DHT11_INIT?DHT11
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DHT11_WAIT_ACK?DHT11
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DHT11_READ?DHT11
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DISP_DATA?DISPLAY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?CO?DISPLAY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DS1302INIT?DS1302
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DS1302READTIME?DS1302
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?OLED_DISPLAY_ON?OLED
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?OLED_DISPLAY_OFF?OLED
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OLED_SHOWNUM?OLED
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OLED_DRAWBMP?OLED
+Program Size: data=52.0 xdata=0 code=8355
+Target not created
+Rebuild target 'Target 1'
+assembling STARTUP.A51...
+compiling dht11.c...
+compiling display.c...
+compiling ds1302.c...
+compiling main.c...
+compiling oled.c...
+source\oled.c(154): warning C294: unreachable code
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DHT11_INIT?DHT11
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DHT11_WAIT_ACK?DHT11
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DHT11_READ?DHT11
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DISP_DATA?DISPLAY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?CO?DISPLAY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DS1302INIT?DS1302
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DS1302READTIME?DS1302
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?OLED_DISPLAY_ON?OLED
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?OLED_DISPLAY_OFF?OLED
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OLED_SHOWNUM?OLED
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OLED_DRAWBMP?OLED
+Program Size: data=52.0 xdata=0 code=6307
+creating hex file from ".\output\code"...
+".\output\code" - 0 Error(s), 12 Warning(s).
+Rebuild target 'Target 1'
+assembling STARTUP.A51...
+compiling dht11.c...
+compiling display.c...
+compiling ds1302.c...
+compiling main.c...
+compiling oled.c...
+source\oled.c(154): warning C294: unreachable code
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DHT11_INIT?DHT11
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DHT11_WAIT_ACK?DHT11
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DHT11_READ?DHT11
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DISP_DATA?DISPLAY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DS1302INIT?DS1302
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DS1302READTIME?DS1302
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?OLED_DISPLAY_ON?OLED
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?OLED_DISPLAY_OFF?OLED
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OLED_SHOWNUM?OLED
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OLED_DRAWBMP?OLED
+Program Size: data=53.0 xdata=0 code=6306
+creating hex file from ".\output\code"...
+".\output\code" - 0 Error(s), 11 Warning(s).
+Rebuild target 'Target 1'
+assembling STARTUP.A51...
+compiling dht11.c...
+compiling display.c...
+compiling ds1302.c...
+compiling main.c...
+compiling oled.c...
+source\oled.c(154): warning C294: unreachable code
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DHT11_INIT?DHT11
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DHT11_WAIT_ACK?DHT11
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DHT11_READ?DHT11
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DS1302INIT?DS1302
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DS1302READTIME?DS1302
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?OLED_DISPLAY_ON?OLED
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?OLED_DISPLAY_OFF?OLED
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OLED_SHOWNUM?OLED
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OLED_DRAWBMP?OLED
+Program Size: data=52.0 xdata=0 code=6309
+creating hex file from ".\output\code"...
+".\output\code" - 0 Error(s), 10 Warning(s).
+Rebuild target 'Target 1'
+assembling STARTUP.A51...
+compiling dht11.c...
+compiling display.c...
+compiling ds1302.c...
+compiling main.c...
+source\main.c(50): warning C206: 'Scan_Keys': missing function-prototype
+compiling oled.c...
+source\oled.c(154): warning C294: unreachable code
+compiling key.c...
+source\key.c(17): error C141: syntax error near 'key_state'
+source\key.c(18): error C202: 'u8': undefined identifier
+source\key.c(18): error C141: syntax error near 'key_press'
+source\key.c(19): error C202: 'u8': undefined identifier
+source\key.c(19): error C141: syntax error near 'key_input'
+source\key.c(22): error C202: 'key_input': undefined identifier
+source\key.c(23): error C202: 'key_input': undefined identifier
+source\key.c(24): error C202: 'key_input': undefined identifier
+source\key.c(25): error C202: 'key_press': undefined identifier
+source\key.c(30): error C202: 'key_press': undefined identifier
+source\key.c(38): error C202: 'key_press': undefined identifier
+source\key.c(40): error C202: 'key_press': undefined identifier
+source\key.c(44): error C202: 'key_press': undefined identifier
+source\key.c(48): error C202: 'ey_state': undefined identifier
+source\key.c(54): error C202: 'key_press': undefined identifier
+Target not created
+Rebuild target 'Target 1'
+assembling STARTUP.A51...
+compiling dht11.c...
+compiling display.c...
+compiling ds1302.c...
+compiling main.c...
+source\main.c(50): warning C206: 'Scan_Keys': missing function-prototype
+compiling oled.c...
+source\oled.c(154): warning C294: unreachable code
+compiling key.c...
+source\key.c(22): error C202: 'PORT_K_U': undefined identifier
+source\key.c(24): error C202: 'PORT_K_D': undefined identifier
+source\key.c(48): error C202: 'ey_state': undefined identifier
+Target not created
+Rebuild target 'Target 1'
+assembling STARTUP.A51...
+compiling dht11.c...
+compiling display.c...
+compiling ds1302.c...
+compiling main.c...
+source\main.c(50): warning C206: 'Scan_Keys': missing function-prototype
+compiling oled.c...
+source\oled.c(154): warning C294: unreachable code
+compiling key.c...
+source\key.c(48): error C202: 'ey_state': undefined identifier
+Target not created
+Rebuild target 'Target 1'
+assembling STARTUP.A51...
+compiling dht11.c...
+compiling display.c...
+compiling ds1302.c...
+compiling main.c...
+source\main.c(50): warning C206: 'Scan_Keys': missing function-prototype
+compiling oled.c...
+source\oled.c(154): warning C294: unreachable code
+compiling key.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DHT11_INIT?DHT11
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DHT11_WAIT_ACK?DHT11
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DHT11_READ?DHT11
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?CO?DISPLAY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DS1302INIT?DS1302
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DS1302READTIME?DS1302
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?OLED_DISPLAY_ON?OLED
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?OLED_DISPLAY_OFF?OLED
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OLED_SHOWNUM?OLED
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OLED_SHOWSTRING?OLED
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OLED_SHOWCHINESE?OLED
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OLED_DRAWBMP?OLED
+Program Size: data=56.0 xdata=0 code=6246
+creating hex file from ".\output\code"...
+".\output\code" - 0 Error(s), 14 Warning(s).
+Rebuild target 'Target 1'
+assembling STARTUP.A51...
+compiling dht11.c...
+compiling display.c...
+compiling ds1302.c...
+compiling main.c...
+compiling oled.c...
+source\oled.c(154): warning C294: unreachable code
+compiling key.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DHT11_INIT?DHT11
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DHT11_WAIT_ACK?DHT11
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DHT11_READ?DHT11
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?CO?DISPLAY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DS1302INIT?DS1302
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DS1302READTIME?DS1302
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?OLED_DISPLAY_ON?OLED
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?OLED_DISPLAY_OFF?OLED
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OLED_SHOWNUM?OLED
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OLED_SHOWSTRING?OLED
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OLED_SHOWCHINESE?OLED
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OLED_DRAWBMP?OLED
+Program Size: data=56.0 xdata=0 code=6246
+creating hex file from ".\output\code"...
+".\output\code" - 0 Error(s), 13 Warning(s).
+Rebuild target 'Target 1'
+assembling STARTUP.A51...
+compiling dht11.c...
+compiling display.c...
+compiling ds1302.c...
+compiling main.c...
+source\main.c(47): warning C206: 'DS1302_Init': missing function-prototype
+source\main.c(51): warning C206: 'Keys_Scan': missing function-prototype
+source\main.c(52): warning C206: 'DS1302_Get': missing function-prototype
+compiling oled.c...
+source\oled.c(154): warning C294: unreachable code
+compiling key.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DHT11_INIT?DHT11
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DHT11_WAIT_ACK?DHT11
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DHT11_READ?DHT11
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?CO?DISPLAY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DS1302_WRITE?DS1302
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DS1302_READ?DS1302
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DS1302_READTIME?DS1302
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?OLED_DISPLAY_ON?OLED
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?OLED_DISPLAY_OFF?OLED
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OLED_SHOWNUM?OLED
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OLED_SHOWSTRING?OLED
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OLED_SHOWCHINESE?OLED
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OLED_DRAWBMP?OLED
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  _DS1302WRITE
+    MODULE:  .\output\ds1302.obj (DS1302)
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  _DS1302READ
+    MODULE:  .\output\ds1302.obj (DS1302)
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _DS1302WRITE
+    MODULE:  .\output\ds1302.obj (DS1302)
+    ADDRESS: 16EEH
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _DS1302WRITE
+    MODULE:  .\output\ds1302.obj (DS1302)
+    ADDRESS: 1702H
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _DS1302WRITE
+    MODULE:  .\output\ds1302.obj (DS1302)
+    ADDRESS: 1712H
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _DS1302READ
+    MODULE:  .\output\ds1302.obj (DS1302)
+    ADDRESS: 17ADH
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  DS1302_GET
+    MODULE:  .\output\main.obj (MAIN)
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  DS1302_GET
+    MODULE:  .\output\main.obj (MAIN)
+    ADDRESS: 1802H
+Program Size: data=57.0 xdata=0 code=6268
+creating hex file from ".\output\code"...
+".\output\code" - 0 Error(s), 25 Warning(s).
+Rebuild target 'Target 1'
+assembling STARTUP.A51...
+compiling dht11.c...
+compiling display.c...
+compiling ds1302.c...
+source\ds1302.c(112): warning C206: 'Ds1302Write': missing function-prototype
+source\ds1302.c(112): error C267: 'Ds1302Write': requires ANSI-style prototype
+compiling main.c...
+source\main.c(51): warning C206: 'Keys_Scan': missing function-prototype
+source\main.c(52): warning C206: 'DS1302_Get': missing function-prototype
+compiling oled.c...
+source\oled.c(154): warning C294: unreachable code
+compiling key.c...
+Target not created
+Rebuild target 'Target 1'
+assembling STARTUP.A51...
+compiling dht11.c...
+compiling display.c...
+compiling ds1302.c...
+compiling main.c...
+source\main.c(51): warning C206: 'Keys_Scan': missing function-prototype
+source\main.c(52): warning C206: 'DS1302_Get': missing function-prototype
+compiling oled.c...
+source\oled.c(154): warning C294: unreachable code
+compiling key.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DHT11_INIT?DHT11
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DHT11_WAIT_ACK?DHT11
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DHT11_READ?DHT11
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?CO?DISPLAY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DS1302_READTIME?DS1302
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?OLED_DISPLAY_ON?OLED
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?OLED_DISPLAY_OFF?OLED
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OLED_SHOWNUM?OLED
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OLED_SHOWSTRING?OLED
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OLED_SHOWCHINESE?OLED
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OLED_DRAWBMP?OLED
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  DS1302_GET
+    MODULE:  .\output\main.obj (MAIN)
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  DS1302_GET
+    MODULE:  .\output\main.obj (MAIN)
+    ADDRESS: 17F2H
+Program Size: data=56.0 xdata=0 code=6252
+creating hex file from ".\output\code"...
+".\output\code" - 0 Error(s), 16 Warning(s).
+Rebuild target 'Target 1'
+assembling STARTUP.A51...
+compiling dht11.c...
+compiling display.c...
+compiling ds1302.c...
+compiling main.c...
+source\main.c(52): warning C206: 'DS1302_Get': missing function-prototype
+compiling oled.c...
+source\oled.c(154): warning C294: unreachable code
+compiling key.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DHT11_INIT?DHT11
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DHT11_WAIT_ACK?DHT11
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DHT11_READ?DHT11
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?CO?DISPLAY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DS1302_READTIME?DS1302
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?OLED_DISPLAY_ON?OLED
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?OLED_DISPLAY_OFF?OLED
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OLED_SHOWNUM?OLED
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OLED_SHOWSTRING?OLED
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OLED_SHOWCHINESE?OLED
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OLED_DRAWBMP?OLED
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  DS1302_GET
+    MODULE:  .\output\main.obj (MAIN)
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  DS1302_GET
+    MODULE:  .\output\main.obj (MAIN)
+    ADDRESS: 17F2H
+Program Size: data=56.0 xdata=0 code=6252
+creating hex file from ".\output\code"...
+".\output\code" - 0 Error(s), 15 Warning(s).
+Rebuild target 'Target 1'
+assembling STARTUP.A51...
+compiling dht11.c...
+compiling display.c...
+compiling ds1302.c...
+compiling main.c...
+source\main.c(52): warning C206: 'DS1302_Get': missing function-prototype
+compiling oled.c...
+source\oled.c(154): warning C294: unreachable code
+compiling key.c...
+compiling detect.c...
+.\include\detect.h(4): warning C318: can't open file 'typedef.h'
+.\include\detect.h(5): warning C318: can't open file 'iostm8s103f3.h'
+.\include\detect.h(21): error C129: missing ';' before 'u16'
+Target not created
+Rebuild target 'Target 1'
+assembling STARTUP.A51...
+compiling dht11.c...
+compiling display.c...
+compiling ds1302.c...
+compiling main.c...
+source\main.c(52): warning C206: 'DS1302_Get': missing function-prototype
+compiling oled.c...
+source\oled.c(154): warning C294: unreachable code
+compiling key.c...
+compiling detect.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DHT11_INIT?DHT11
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DHT11_WAIT_ACK?DHT11
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DHT11_READ?DHT11
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?CO?DISPLAY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DS1302_READTIME?DS1302
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?OLED_DISPLAY_ON?OLED
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?OLED_DISPLAY_OFF?OLED
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OLED_SHOWNUM?OLED
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OLED_SHOWSTRING?OLED
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OLED_SHOWCHINESE?OLED
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OLED_DRAWBMP?OLED
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  DS1302_GET
+    MODULE:  .\output\main.obj (MAIN)
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  DS1302_GET
+    MODULE:  .\output\main.obj (MAIN)
+    ADDRESS: 17F2H
+Program Size: data=56.0 xdata=0 code=6252
+creating hex file from ".\output\code"...
+".\output\code" - 0 Error(s), 15 Warning(s).
+Rebuild target 'Target 1'
+assembling STARTUP.A51...
+compiling dht11.c...
+compiling display.c...
+compiling ds1302.c...
+compiling main.c...
+source\main.c(53): warning C206: 'DS1302_Get': missing function-prototype
+source\main.c(54): warning C206: 'DHT11_Get': missing function-prototype
+source\main.c(55): warning C206: 'Dete_Data': missing function-prototype
+compiling oled.c...
+source\oled.c(154): warning C294: unreachable code
+compiling key.c...
+compiling detect.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DHT11_INIT?DHT11
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DHT11_WAIT_ACK?DHT11
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DHT11_READ?DHT11
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?CO?DISPLAY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DS1302_READTIME?DS1302
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?OLED_DISPLAY_ON?OLED
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?OLED_DISPLAY_OFF?OLED
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OLED_SHOWNUM?OLED
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OLED_SHOWSTRING?OLED
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OLED_SHOWCHINESE?OLED
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OLED_DRAWBMP?OLED
+Program Size: data=56.0 xdata=0 code=6261
+creating hex file from ".\output\code"...
+".\output\code" - 0 Error(s), 15 Warning(s).
+Rebuild target 'Target 1'
+assembling STARTUP.A51...
+compiling dht11.c...
+compiling display.c...
+compiling ds1302.c...
+compiling main.c...
+compiling oled.c...
+source\oled.c(154): warning C294: unreachable code
+compiling key.c...
+compiling detect.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DHT11_INIT?DHT11
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DHT11_WAIT_ACK?DHT11
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DHT11_READ?DHT11
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?CO?DISPLAY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DS1302_READTIME?DS1302
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?OLED_DISPLAY_ON?OLED
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?OLED_DISPLAY_OFF?OLED
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OLED_SHOWNUM?OLED
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OLED_SHOWSTRING?OLED
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OLED_SHOWCHINESE?OLED
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_OLED_DRAWBMP?OLED
+Program Size: data=56.0 xdata=0 code=6261
+creating hex file from ".\output\code"...
+".\output\code" - 0 Error(s), 12 Warning(s).
