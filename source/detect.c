@@ -19,7 +19,7 @@ volatile unsigned char Flag_rh_get;
 volatile unsigned char Flag_tmp_get;
 volatile unsigned char Flag_DS1302_Write;
 volatile unsigned char Flag_read_only_one;
-
+volatile unsigned char Flag_read_only_get;
 volatile unsigned char ave;
 
 
@@ -43,6 +43,7 @@ void DS1302_Get()
 		if(Flag_read_only_one == 1)
 		{
 			Flag_read_only_one = 0;
+			Flag_read_only_get = 1;
 			DS1302_Data_Tmp[0]	= DS1302_Data[0];
 			DS1302_Data_Tmp[1]	= DS1302_Data[1];
 			DS1302_Data_Tmp[2]	= DS1302_Data[2];
@@ -172,17 +173,38 @@ void Dete_Data()
 		// 时间停止增加(√)
 		// 时间闪烁(√)
 		// 时间调整按键生效(√)
-		// 循环按菜单键后，写入时间
-		Flag_read_only_one	= 1;
+		// 循环按菜单键后，写入时间(√)
+		if(Flag_read_only_get == 0)
+			Flag_read_only_one	= 1;
+		
 		if(Flag_key_incre == 1)
 		{
 			Flag_key_incre = 0;	
-			DS1302_Data_Tmp[1]++;
+			//DS1302_Data_Tmp[1]++;
+			if(++DS1302_Data_Tmp[1] >= 10)
+			{
+				DS1302_Data_Tmp[0]++;
+				DS1302_Data_Tmp[1] = 0;
+				//if(++DS1302_Data_Tmp[0] >= 2)
+					//DS1302_Data_Tmp[0] = 0;
+				//DS1302_Data_Tmp[1] = 0;
+			}
+			if((DS1302_Data_Tmp[1] == 4) && (DS1302_Data_Tmp[0] == 2))
+			{
+				DS1302_Data_Tmp[0] = 0;
+				DS1302_Data_Tmp[1] = 0;
+			}
+
 		}
 		else if(Flag_key_decre == 1)
 		{
 			Flag_key_decre = 0;
-			DS1302_Data_Tmp[1]--;
+			if(--DS1302_Data_Tmp[1] >= 255)
+			{
+				if(--DS1302_Data_Tmp[0] >= 255)
+					DS1302_Data_Tmp[0] = 2;
+				DS1302_Data_Tmp[1] = 3;
+			}
 		}
 	}
 	else if(Flag_key_menu == MENU_ADJ_MIN)
@@ -228,7 +250,7 @@ void Dete_Data()
 			{
 				if(--DS1302_Data_Tmp[4] >= 255)
 					DS1302_Data_Tmp[4] = 5;
-				DS1302_Data_Tmp[4] = 9;
+				DS1302_Data_Tmp[5] = 9;
 			}
 		}
 	}
@@ -237,6 +259,7 @@ void Dete_Data()
 		if(flag_adj_sec == 1)
 		{
 			flag_adj_sec = 0;
+			Flag_read_only_get = 0;
 			
 			time_write_tmp[0] = ((DS1302_Data_Tmp[4]<<4) | DS1302_Data_Tmp[5]);
 			time_write_tmp[1] = ((DS1302_Data_Tmp[2]<<4) | DS1302_Data_Tmp[3]);

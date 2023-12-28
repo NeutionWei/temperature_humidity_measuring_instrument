@@ -172,7 +172,7 @@ void main()
 	//Timer0_Init();	// 定时器0初始化
 	//Timer1_Init();	// 定时器1初始化
 	Disp_Init();		// 显示模块初始化
-	DS1302_Init();
+	//DS1302_Init();
 	Delay(200);
 	while(1)
 	{
